@@ -1,0 +1,179 @@
+using Microsoft.Office.Interop.Visio;
+using System.Runtime.InteropServices;
+
+namespace VisioFileTest
+{
+    public partial class FrmMain : Form
+    {
+        static Master? vConnectorMaster;
+        static Shape? vConnector;
+        static Cell? vBeginCell;
+        static Cell? vEndCell;
+        static Shape? vFromShape;
+        static Shape? vToShape;
+
+        /* gets the values of the coordinates */
+        readonly double pageWidth;
+        readonly double pageHeight;
+        // Create a new instance of the Visio application
+        static readonly Microsoft.Office.Interop.Visio.Application visioApp = new()
+        {
+            // Show the Visio application window
+            Visible = true
+        };
+
+        static readonly Document visioDoc = visioApp.Documents.Open("D:\\OneDrive - Fichtner GmbH & Co. KG\\Dokumente\\Arbeiten\\FICHTNER\\Visio\\VisioFileTest\\VisioFile.vsdx");
+
+        static readonly Document vStencil = visioApp.Documents.OpenEx("C:\\Vorlagen\\Visio-Vorlagen\\Fichtner Shape.vssx", 4);
+        public FrmMain()
+        {
+            InitializeComponent();
+
+            vConnectorMaster = null;
+            vConnector = null;
+
+            Page visioPage = visioDoc.Pages[1]; // Assuming you want to work with the first page of the Visio document
+
+            pageWidth = visioPage.PageSheet.get_Cells("PageWidth").ResultIU;
+            pageHeight = visioPage.PageSheet.get_Cells("PageHeight").ResultIU;
+        }
+
+        private void BTNcreateVisioFile_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the Visio application
+            var visioApp = new Microsoft.Office.Interop.Visio.Application();
+
+            // Release the COM objects to avoid memory leaks
+            Marshal.ReleaseComObject(visioDoc);
+            Marshal.ReleaseComObject(visioApp);
+
+            // Show a message box indicating the file creation success
+            MessageBox.Show("Visio file created successfully!");
+        }
+
+        private void BTNcreateTaskShape_Click(object sender, EventArgs e)
+        {
+            // Get the active page
+            Page page = visioApp.ActivePage;
+
+            Master masters = vStencil.Masters["Aufgabe"]; // string-array als einfache Auswahl
+            vToShape = page.Drop(masters, pageWidth - 3, pageHeight - 2);
+            vToShape.Text = "variable Koordinaten";
+
+            if (vFromShape != null)
+            {
+                CreateConnector(vFromShape, vToShape);
+            }
+            vFromShape = vToShape;
+
+            // Save the document
+            visioDoc.Save();
+        }
+
+        private void BtnCreateConnector_Click(object sender, EventArgs e)
+        {
+            // Get the active page
+            Page page = visioApp.ActivePage; // pro Page mit eigenem Zeichnblatt-Namen anwenden
+
+            Master masters = vStencil.Masters["Endereignis"];
+            Shape testShape = page.Drop(masters, 4, 4);
+            testShape.Text = "Mista Krebs";
+
+            testShape.CellsU["Width"].ResultIU = 2;
+            testShape.CellsU["Height"].ResultIU = 3;
+
+            visioDoc.Save();
+        }
+
+        private void BTN_imageCreator_Click(object sender, EventArgs e)
+        {
+            // Get the active page
+            Page page = visioApp.ActivePage;
+
+            // Specify the path to the image file
+            string imagePath = "D:\\OneDrive - Fichtner GmbH & Co. KG\\Dokumente\\it.schule\\B7B8\\B7B8_Englisch\\KA2\\OtherFunnyPics\\physicsTeacher.png";
+
+            // Load the image into Visio
+            Shape imageShape = page.Import(imagePath);
+
+            // Set the position and size of the image shape
+            imageShape.CellsU["PinX"].ResultIU = 5;
+            imageShape.CellsU["PinY"].ResultIU = 5;
+            imageShape.CellsU["Width"].ResultIU = 2;
+            imageShape.CellsU["Height"].ResultIU = 3;
+
+            imageShape.Text = "Position: 5, 5";
+
+            visioDoc.Save();
+        }
+
+        private void BTN_BlattErstellen_Click(object sender, EventArgs e)
+        {
+            // Generate a new page name
+            string newPageName = "Neues Blatt";
+            int counter = 1;
+
+            while (PageExists(newPageName))
+            {
+                newPageName = $"Neues Blatt {counter}";
+                counter++;
+            }
+
+            // Create a new page in the active document
+            Page newPage = visioDoc.Pages.Add();
+
+            // Set the name of the new page
+            newPage.Name = newPageName;
+        }
+
+        private static bool PageExists(string pageName)
+        {
+            foreach (Page page in visioDoc.Pages)
+            {
+                if (page.Name == pageName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void BtnAnbinder_Click(object sender, EventArgs e)
+        {
+            CreateConnector(vFromShape, vToShape); // calls the defined Method beneath
+        }
+
+        static void CreateConnector(Shape taskShape, Shape mailShape)
+        {
+            // Get the active page
+            Page page = visioApp.ActivePage;
+
+            vConnectorMaster ??= vStencil.Masters["Sequenzfluss.46"]; // Name des Schablonenpfeils
+            vConnector = page.Drop(vConnectorMaster, 0, 0);
+            vBeginCell = vConnector.CellsU["BeginX"];
+            vBeginCell.GlueTo(taskShape.CellsU["AlignRight"]);
+            vEndCell = vConnector.CellsU["EndX"];
+            vEndCell.GlueTo(mailShape.CellsU["AlignLeft"]);
+            vConnector.SendToBack();
+        }
+
+        private void BtnMailShapeCreator_Click(object sender, EventArgs e)
+        {
+            // Get the active page
+            Page page = visioApp.ActivePage;
+
+            Master masters = vStencil.Masters["Nachricht"]; // string-array als einfache Auswahl
+            vToShape = page.Drop(masters, 7, 4);
+            vToShape.Text = "Mail an Kevin";
+
+            if (vFromShape != null)
+            {
+                CreateConnector(vFromShape, vToShape);
+            }
+            vFromShape = vToShape;
+
+            // Save the document
+            visioDoc.Save();
+        }
+    }
+}
