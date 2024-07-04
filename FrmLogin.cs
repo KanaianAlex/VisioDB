@@ -25,10 +25,7 @@ namespace VisioDB_Viewer
             InitializeComponent();
         }
 
-        private void BtnEnd_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void BtnEnd_Click(object sender, EventArgs e) => Application.Exit();
 
         private void CmbBxServer_SelectedIndexChanged(object sender, EventArgs e)
         {

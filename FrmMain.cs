@@ -1,5 +1,7 @@
 using Microsoft.Office.Interop.Visio;
+using System;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace VisioFileTest
 {
