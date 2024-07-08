@@ -2,6 +2,8 @@ using Microsoft.Office.Interop.Visio;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Georg;
+using System.Data;
 
 namespace VisioFileTest
 {
@@ -176,6 +178,21 @@ namespace VisioFileTest
 
             // Save the document
             visioDoc.Save();
+        }
+
+        private void BtnSoftware_Click(object sender, EventArgs e)
+        {
+            IGEOrgCommand cmd = DB.clsConnection.Manager().GetCommand(DB.clsConnection.SYS);
+            DataTable dt = cmd.GetTable(DB.clsConnection.SYS, "Software");
+            if (dt != null)
+            {
+                DGvTable.DataSource = dt;
+            }
+        }
+
+        private void BtnOpenVisioFiel_Click(object sender, EventArgs e)
+        {
+            string levonFileName = Tools.modFiles.GetFilenameFromDialog("Selektiere Visio-Datei", @"D:\OneDrive - Fichtner GmbH & Co. KG\Dokumente\Arbeiten\FICHTNER\Visio\", "Visio-Dateien (*.vsdx)|*.vsdx");
         }
     }
 }

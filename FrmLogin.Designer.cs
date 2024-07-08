@@ -47,36 +47,36 @@ namespace VisioDB_Viewer
             // LblServer
             // 
             LblServer.AutoSize = true;
-            LblServer.Location = new Point(10, 7);
+            LblServer.Location = new Point(11, 9);
             LblServer.Name = "LblServer";
-            LblServer.Size = new Size(39, 15);
+            LblServer.Size = new Size(50, 20);
             LblServer.TabIndex = 0;
             LblServer.Text = "Server";
             // 
             // LblDB
             // 
             LblDB.AutoSize = true;
-            LblDB.Location = new Point(10, 32);
+            LblDB.Location = new Point(11, 43);
             LblDB.Name = "LblDB";
-            LblDB.Size = new Size(64, 15);
+            LblDB.Size = new Size(81, 20);
             LblDB.TabIndex = 1;
             LblDB.Text = "Datenbank";
             // 
             // LblUser
             // 
             LblUser.AutoSize = true;
-            LblUser.Location = new Point(10, 56);
+            LblUser.Location = new Point(11, 75);
             LblUser.Name = "LblUser";
-            LblUser.Size = new Size(53, 15);
+            LblUser.Size = new Size(67, 20);
             LblUser.TabIndex = 2;
             LblUser.Text = "Benutzer";
             // 
             // LblPasswort
             // 
             LblPasswort.AutoSize = true;
-            LblPasswort.Location = new Point(10, 81);
+            LblPasswort.Location = new Point(11, 108);
             LblPasswort.Name = "LblPasswort";
-            LblPasswort.Size = new Size(54, 15);
+            LblPasswort.Size = new Size(66, 20);
             LblPasswort.TabIndex = 3;
             LblPasswort.Text = "Passwort";
             // 
@@ -85,57 +85,51 @@ namespace VisioDB_Viewer
             CmbBxServer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CmbBxServer.FormattingEnabled = true;
             CmbBxServer.Items.AddRange(new object[] { "<Server auswählen>", "VisioDB", "FES" });
-            CmbBxServer.Location = new Point(88, 4);
-            CmbBxServer.Margin = new Padding(3, 2, 3, 2);
+            CmbBxServer.Location = new Point(101, 5);
             CmbBxServer.Name = "CmbBxServer";
-            CmbBxServer.Size = new Size(133, 23);
+            CmbBxServer.Size = new Size(151, 28);
             CmbBxServer.TabIndex = 4;
             CmbBxServer.SelectedIndexChanged += CmbBxServer_SelectedIndexChanged;
             // 
             // TxtServer
             // 
-            TxtServer.Location = new Point(88, 4);
-            TxtServer.Margin = new Padding(3, 2, 3, 2);
+            TxtServer.Location = new Point(101, 5);
             TxtServer.Name = "TxtServer";
-            TxtServer.Size = new Size(110, 23);
+            TxtServer.Size = new Size(125, 27);
             TxtServer.TabIndex = 5;
             TxtServer.Visible = false;
             // 
             // TxtDB
             // 
             TxtDB.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TxtDB.Location = new Point(88, 29);
-            TxtDB.Margin = new Padding(3, 2, 3, 2);
+            TxtDB.Location = new Point(101, 39);
             TxtDB.Name = "TxtDB";
-            TxtDB.Size = new Size(133, 23);
+            TxtDB.Size = new Size(151, 27);
             TxtDB.TabIndex = 6;
             // 
             // TxtUser
             // 
             TxtUser.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TxtUser.Location = new Point(88, 54);
-            TxtUser.Margin = new Padding(3, 2, 3, 2);
+            TxtUser.Location = new Point(101, 72);
             TxtUser.Name = "TxtUser";
-            TxtUser.Size = new Size(133, 23);
+            TxtUser.Size = new Size(151, 27);
             TxtUser.TabIndex = 7;
             // 
             // TxtPasswort
             // 
             TxtPasswort.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TxtPasswort.Location = new Point(88, 79);
-            TxtPasswort.Margin = new Padding(3, 2, 3, 2);
+            TxtPasswort.Location = new Point(101, 105);
             TxtPasswort.Name = "TxtPasswort";
             TxtPasswort.PasswordChar = '#';
-            TxtPasswort.Size = new Size(133, 23);
+            TxtPasswort.Size = new Size(151, 27);
             TxtPasswort.TabIndex = 8;
             // 
             // BtnEnd
             // 
             BtnEnd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnEnd.Location = new Point(10, 112);
-            BtnEnd.Margin = new Padding(3, 2, 3, 2);
+            BtnEnd.Location = new Point(11, 149);
             BtnEnd.Name = "BtnEnd";
-            BtnEnd.Size = new Size(82, 22);
+            BtnEnd.Size = new Size(94, 29);
             BtnEnd.TabIndex = 9;
             BtnEnd.Text = "Be&enden";
             BtnEnd.UseVisualStyleBackColor = true;
@@ -145,19 +139,19 @@ namespace VisioDB_Viewer
             // 
             BtnWeiter.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BtnWeiter.Enabled = false;
-            BtnWeiter.Location = new Point(138, 112);
-            BtnWeiter.Margin = new Padding(3, 2, 3, 2);
+            BtnWeiter.Location = new Point(158, 149);
             BtnWeiter.Name = "BtnWeiter";
-            BtnWeiter.Size = new Size(82, 22);
+            BtnWeiter.Size = new Size(94, 29);
             BtnWeiter.TabIndex = 10;
             BtnWeiter.Text = "Weiter";
             BtnWeiter.UseVisualStyleBackColor = true;
+            BtnWeiter.Click += BtnWeiter_Click;
             // 
             // FrmLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(260, 151);
+            ClientSize = new Size(297, 201);
             Controls.Add(BtnWeiter);
             Controls.Add(BtnEnd);
             Controls.Add(TxtPasswort);
@@ -169,7 +163,6 @@ namespace VisioDB_Viewer
             Controls.Add(LblUser);
             Controls.Add(LblDB);
             Controls.Add(LblServer);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmLogin";
             Text = "FrmLogin";
             ResumeLayout(false);
