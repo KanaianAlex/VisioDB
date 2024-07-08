@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             BTNcreateVisioFile = new Button();
             BTNcreateTaskShape = new Button();
             BtnCreateConnector = new Button();
@@ -37,9 +37,10 @@
             BtnAnbinder = new Button();
             BtnMailShapeCreator = new Button();
             splitContainer1 = new SplitContainer();
+            BtnOpenVisioFiel = new Button();
             BtnSoftware = new Button();
             DGvTable = new DataGridView();
-            BtnOpenVisioFiel = new Button();
+            BtnShapeScanner = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -134,6 +135,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(BtnShapeScanner);
             splitContainer1.Panel1.Controls.Add(BtnOpenVisioFiel);
             splitContainer1.Panel1.Controls.Add(BtnSoftware);
             splitContainer1.Panel1.Controls.Add(BTNcreateVisioFile);
@@ -151,6 +153,16 @@
             splitContainer1.SplitterDistance = 207;
             splitContainer1.TabIndex = 7;
             // 
+            // BtnOpenVisioFiel
+            // 
+            BtnOpenVisioFiel.Location = new Point(14, 367);
+            BtnOpenVisioFiel.Name = "BtnOpenVisioFiel";
+            BtnOpenVisioFiel.Size = new Size(136, 29);
+            BtnOpenVisioFiel.TabIndex = 8;
+            BtnOpenVisioFiel.Text = "Open Visio-File";
+            BtnOpenVisioFiel.UseVisualStyleBackColor = true;
+            BtnOpenVisioFiel.Click += BtnOpenVisioFiel_Click;
+            // 
             // BtnSoftware
             // 
             BtnSoftware.Location = new Point(14, 331);
@@ -163,8 +175,8 @@
             // 
             // DGvTable
             // 
-            dataGridViewCellStyle3.BackColor = Color.LightGray;
-            DGvTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = Color.LightGray;
+            DGvTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             DGvTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             DGvTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGvTable.Dock = DockStyle.Fill;
@@ -174,15 +186,15 @@
             DGvTable.Size = new Size(853, 673);
             DGvTable.TabIndex = 0;
             // 
-            // BtnOpenVisioFiel
+            // BtnShapeScanner
             // 
-            BtnOpenVisioFiel.Location = new Point(14, 367);
-            BtnOpenVisioFiel.Name = "BtnOpenVisioFiel";
-            BtnOpenVisioFiel.Size = new Size(136, 29);
-            BtnOpenVisioFiel.TabIndex = 8;
-            BtnOpenVisioFiel.Text = "Open Visio-File";
-            BtnOpenVisioFiel.UseVisualStyleBackColor = true;
-            BtnOpenVisioFiel.Click += BtnOpenVisioFiel_Click;
+            BtnShapeScanner.Location = new Point(14, 402);
+            BtnShapeScanner.Name = "BtnShapeScanner";
+            BtnShapeScanner.Size = new Size(129, 29);
+            BtnShapeScanner.TabIndex = 9;
+            BtnShapeScanner.Text = "Shapes scannen";
+            BtnShapeScanner.UseVisualStyleBackColor = true;
+            BtnShapeScanner.Click += BtnShapeScanner_Click;
             // 
             // FrmMain
             // 
@@ -192,6 +204,7 @@
             Controls.Add(splitContainer1);
             Name = "FrmMain";
             Text = "Form1";
+            FormClosing += FrmMain_FormClosing;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
@@ -214,5 +227,6 @@
         private Button BtnSoftware;
         private DataGridView DGvTable;
         private Button BtnOpenVisioFiel;
+        private Button BtnShapeScanner;
     }
 }

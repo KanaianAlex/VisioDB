@@ -90,6 +90,7 @@ namespace VisioDB_Viewer
             }
 
             //Close(); // einkommentiert, da sonst das Main-Formular und damit die App geschlossen wird
+            Hide();
             FrmMain frmMain = new();
             frmMain.Show();
         }
