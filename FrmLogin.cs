@@ -84,6 +84,7 @@ namespace VisioDB_Viewer
                     }
                     else if (result == DialogResult.Retry)
                     {
+
                         return;
                     }
                 }
