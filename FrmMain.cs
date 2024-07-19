@@ -184,7 +184,11 @@ namespace VisioFileTest
             Page visioPage = visioDoc.Pages[1];
             foreach (Shape shape in visioPage.Shapes)
             {
-                
+                //if (shape.ID == 248)
+                //{
+                //    shape.BoundingBox(1)
+                //    break;
+                //}
             }
         }
 
