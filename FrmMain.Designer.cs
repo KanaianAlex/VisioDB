@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             BTNcreateVisioFile = new Button();
             BTNcreateTaskShape = new Button();
             BtnCreateConnector = new Button();
@@ -37,10 +37,10 @@
             BtnAnbinder = new Button();
             BtnMailShapeCreator = new Button();
             splitContainer1 = new SplitContainer();
+            BtnShapeScanner = new Button();
             BtnOpenVisioFiel = new Button();
             BtnSoftware = new Button();
             DGvTable = new DataGridView();
-            BtnShapeScanner = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -51,9 +51,10 @@
             // BTNcreateVisioFile
             // 
             BTNcreateVisioFile.AutoSize = true;
-            BTNcreateVisioFile.Location = new Point(14, 13);
+            BTNcreateVisioFile.Location = new Point(4, 478);
+            BTNcreateVisioFile.Margin = new Padding(3, 2, 3, 2);
             BTNcreateVisioFile.Name = "BTNcreateVisioFile";
-            BTNcreateVisioFile.Size = new Size(100, 30);
+            BTNcreateVisioFile.Size = new Size(88, 25);
             BTNcreateVisioFile.TabIndex = 0;
             BTNcreateVisioFile.Text = "create File";
             BTNcreateVisioFile.UseVisualStyleBackColor = true;
@@ -62,20 +63,22 @@
             // BTNcreateTaskShape
             // 
             BTNcreateTaskShape.AutoSize = true;
-            BTNcreateTaskShape.Location = new Point(14, 52);
+            BTNcreateTaskShape.Location = new Point(-2, 47);
+            BTNcreateTaskShape.Margin = new Padding(3, 2, 3, 2);
             BTNcreateTaskShape.Name = "BTNcreateTaskShape";
-            BTNcreateTaskShape.Size = new Size(138, 30);
+            BTNcreateTaskShape.Size = new Size(132, 25);
             BTNcreateTaskShape.TabIndex = 1;
-            BTNcreateTaskShape.Text = "create Task-Shape";
+            BTNcreateTaskShape.Text = "Prozess 1 visualisieren";
             BTNcreateTaskShape.UseVisualStyleBackColor = true;
             BTNcreateTaskShape.Click += BTNcreateTaskShape_Click;
             // 
             // BtnCreateConnector
             // 
             BtnCreateConnector.AutoSize = true;
-            BtnCreateConnector.Location = new Point(14, 88);
+            BtnCreateConnector.Location = new Point(4, 117);
+            BtnCreateConnector.Margin = new Padding(3, 2, 3, 2);
             BtnCreateConnector.Name = "BtnCreateConnector";
-            BtnCreateConnector.Size = new Size(136, 30);
+            BtnCreateConnector.Size = new Size(119, 25);
             BtnCreateConnector.TabIndex = 2;
             BtnCreateConnector.Text = "create End-Shape";
             BtnCreateConnector.UseVisualStyleBackColor = true;
@@ -83,10 +86,9 @@
             // 
             // BTN_imageCreator
             // 
-            BTN_imageCreator.Location = new Point(14, 163);
-            BTN_imageCreator.Margin = new Padding(3, 4, 3, 4);
+            BTN_imageCreator.Location = new Point(4, 173);
             BTN_imageCreator.Name = "BTN_imageCreator";
-            BTN_imageCreator.Size = new Size(100, 30);
+            BTN_imageCreator.Size = new Size(88, 22);
             BTN_imageCreator.TabIndex = 3;
             BTN_imageCreator.Text = "Bild erstellen";
             BTN_imageCreator.UseVisualStyleBackColor = true;
@@ -94,10 +96,9 @@
             // 
             // BTN_BlattErstellen
             // 
-            BTN_BlattErstellen.Location = new Point(14, 239);
-            BTN_BlattErstellen.Margin = new Padding(3, 4, 3, 4);
+            BTN_BlattErstellen.Location = new Point(69, 345);
             BTN_BlattErstellen.Name = "BTN_BlattErstellen";
-            BTN_BlattErstellen.Size = new Size(100, 30);
+            BTN_BlattErstellen.Size = new Size(88, 22);
             BTN_BlattErstellen.TabIndex = 4;
             BTN_BlattErstellen.Text = "Visio-Blatt erstellen";
             BTN_BlattErstellen.UseVisualStyleBackColor = true;
@@ -105,10 +106,9 @@
             // 
             // BtnAnbinder
             // 
-            BtnAnbinder.Location = new Point(14, 201);
-            BtnAnbinder.Margin = new Padding(3, 4, 3, 4);
+            BtnAnbinder.Location = new Point(4, 202);
             BtnAnbinder.Name = "BtnAnbinder";
-            BtnAnbinder.Size = new Size(100, 30);
+            BtnAnbinder.Size = new Size(88, 22);
             BtnAnbinder.TabIndex = 5;
             BtnAnbinder.Text = "Shapes verbinden";
             BtnAnbinder.UseVisualStyleBackColor = true;
@@ -117,10 +117,9 @@
             // BtnMailShapeCreator
             // 
             BtnMailShapeCreator.AutoSize = true;
-            BtnMailShapeCreator.Location = new Point(14, 125);
-            BtnMailShapeCreator.Margin = new Padding(3, 4, 3, 4);
+            BtnMailShapeCreator.Location = new Point(4, 145);
             BtnMailShapeCreator.Name = "BtnMailShapeCreator";
-            BtnMailShapeCreator.Size = new Size(140, 30);
+            BtnMailShapeCreator.Size = new Size(122, 25);
             BtnMailShapeCreator.TabIndex = 6;
             BtnMailShapeCreator.Text = "create Mail-Shape";
             BtnMailShapeCreator.UseVisualStyleBackColor = true;
@@ -131,6 +130,7 @@
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.FixedPanel = FixedPanel.Panel1;
             splitContainer1.Location = new Point(0, 0);
+            splitContainer1.Margin = new Padding(3, 2, 3, 2);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -149,15 +149,27 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(DGvTable);
-            splitContainer1.Size = new Size(1064, 673);
-            splitContainer1.SplitterDistance = 207;
+            splitContainer1.Size = new Size(931, 505);
+            splitContainer1.SplitterDistance = 181;
             splitContainer1.TabIndex = 7;
+            // 
+            // BtnShapeScanner
+            // 
+            BtnShapeScanner.Location = new Point(12, 302);
+            BtnShapeScanner.Margin = new Padding(3, 2, 3, 2);
+            BtnShapeScanner.Name = "BtnShapeScanner";
+            BtnShapeScanner.Size = new Size(113, 22);
+            BtnShapeScanner.TabIndex = 9;
+            BtnShapeScanner.Text = "Shapes scannen";
+            BtnShapeScanner.UseVisualStyleBackColor = true;
+            BtnShapeScanner.Click += BtnShapeScanner_Click;
             // 
             // BtnOpenVisioFiel
             // 
-            BtnOpenVisioFiel.Location = new Point(14, 367);
+            BtnOpenVisioFiel.Location = new Point(0, 11);
+            BtnOpenVisioFiel.Margin = new Padding(3, 2, 3, 2);
             BtnOpenVisioFiel.Name = "BtnOpenVisioFiel";
-            BtnOpenVisioFiel.Size = new Size(136, 29);
+            BtnOpenVisioFiel.Size = new Size(119, 22);
             BtnOpenVisioFiel.TabIndex = 8;
             BtnOpenVisioFiel.Text = "Open Visio-File";
             BtnOpenVisioFiel.UseVisualStyleBackColor = true;
@@ -165,9 +177,10 @@
             // 
             // BtnSoftware
             // 
-            BtnSoftware.Location = new Point(14, 331);
+            BtnSoftware.Location = new Point(12, 248);
+            BtnSoftware.Margin = new Padding(3, 2, 3, 2);
             BtnSoftware.Name = "BtnSoftware";
-            BtnSoftware.Size = new Size(100, 30);
+            BtnSoftware.Size = new Size(88, 22);
             BtnSoftware.TabIndex = 7;
             BtnSoftware.Text = "Open Table";
             BtnSoftware.UseVisualStyleBackColor = true;
@@ -175,33 +188,25 @@
             // 
             // DGvTable
             // 
-            dataGridViewCellStyle2.BackColor = Color.LightGray;
-            DGvTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            DGvTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             DGvTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             DGvTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGvTable.Dock = DockStyle.Fill;
             DGvTable.Location = new Point(0, 0);
+            DGvTable.Margin = new Padding(3, 2, 3, 2);
             DGvTable.Name = "DGvTable";
             DGvTable.RowHeadersWidth = 51;
-            DGvTable.Size = new Size(853, 673);
+            DGvTable.Size = new Size(746, 505);
             DGvTable.TabIndex = 0;
-            // 
-            // BtnShapeScanner
-            // 
-            BtnShapeScanner.Location = new Point(14, 402);
-            BtnShapeScanner.Name = "BtnShapeScanner";
-            BtnShapeScanner.Size = new Size(129, 29);
-            BtnShapeScanner.TabIndex = 9;
-            BtnShapeScanner.Text = "Shapes scannen";
-            BtnShapeScanner.UseVisualStyleBackColor = true;
-            BtnShapeScanner.Click += BtnShapeScanner_Click;
             // 
             // FrmMain
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1064, 673);
+            ClientSize = new Size(931, 505);
             Controls.Add(splitContainer1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmMain";
             Text = "Form1";
             FormClosing += FrmMain_FormClosing;
